@@ -1,0 +1,46 @@
+private void BtnOperation_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            operation = button.Text;
+            switch (operation)
+            {
+                case "²√x":
+                    TxtDispley2.Text = $"²√({TxtDispley1.Text})";
+                    TxtDispley1.Text = Convert.ToString(Math.Sqrt(Double.Parse(TxtDispley1.Text)));
+                    break;
+                case "x²":
+                    TxtDispley2.Text = $"({TxtDispley1.Text})²";
+                    TxtDispley1.Text = Convert.ToString(Convert.ToDouble(TxtDispley1.Text) * Convert.ToDouble(TxtDispley1.Text));
+                    break;
+                case "⅟x":
+                    TxtDispley2.Text = $"⅟({TxtDispley1.Text})";
+                    TxtDispley1.Text = Convert.ToString(1.0 / Convert.ToDouble(TxtDispley1.Text));
+                    break;
+                case "%":
+                    TxtDispley2.Text = $"%({TxtDispley1.Text})";
+                    TxtDispley1.Text = Convert.ToString(Convert.ToDouble(TxtDispley1.Text) / Convert.ToDouble(100));
+                    break;
+                case "±":
+                    TxtDispley1.Text = Convert.ToString(-1 * Convert.ToDouble(TxtDispley1.Text));
+                    break;
+                case "Sin":
+                    TxtDispley2.Text = $"sin({TxtDispley1.Text})";
+                    TxtDispley1.Text = Convert.ToString(Math.Sin(Convert.ToDouble(TxtDispley1.Text) * Math.PI / 180));
+                    break;
+                case "Cos":
+                    TxtDispley2.Text = $"cos({TxtDispley1.Text})";
+                    TxtDispley1.Text = Convert.ToString(Math.Cos(Convert.ToDouble(TxtDispley1.Text) * Math.PI / 180));
+                    break;
+                case "Tg":
+                    TxtDispley2.Text = $"Tg({TxtDispley1.Text})";
+                    TxtDispley1.Text = Convert.ToString(Math.Tan(Convert.ToDouble(TxtDispley1.Text) * Math.PI / 180));
+                    break;
+                case "Ctg":
+                    TxtDispley2.Text = $"Ctg({TxtDispley1.Text})";
+                    TxtDispley1.Text = Convert.ToString(1.0 / Math.Tan(Convert.ToDouble(TxtDispley1.Text) * Math.PI / 180));
+                    break;
+
+
+            }
+            RtBoxDisplayHistory.AppendText($"{TxtDispley2.Text}={TxtDispley1.Text}\n");
+        }
